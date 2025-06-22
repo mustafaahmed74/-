@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقع شحن شدات ببجي</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #2a2a2a;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        .pricing {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .price-card {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            width: 30%;
+        }
+        .price-card button {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .price-card button:hover {
+            background-color: #218838;
+        }
+        form input, form button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        form button {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+        form button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>موقع شحن شدات ببجي</h1>
+</header>
+
+<div class="container">
+    <h2>اختر الباقة التي ترغب في شحنها</h2>
+    <div class="pricing">
+        <div class="price-card">
+            <h3>100 UC</h3>
+            <p>سعر: 1.99 دولار</p>
+            <button onclick="selectPackage('100 UC')">اختيار</button>
+        </div>
+        <div class="price-card">
+            <h3>500 UC</h3>
+            <p>سعر: 9.99 دولار</p>
+            <button onclick="selectPackage('500 UC')">اختيار</button>
+        </div>
+        <div class="price-card">
+            <h3>1200 UC</h3>
+            <p>سعر: 19.99 دولار</p>
+            <button onclick="selectPackage('1200 UC')">اختيار</button>
+        </div>
+    </div>
+
+    <h2>أدخل بياناتك</h2>
+    <form id="orderForm">
+        <label for="playerId">Player ID</label>
+        <input type="text" id="playerId" placeholder="أدخل Player ID" required>
+
+        <label for="email">البريد الإلكتروني</label>
+        <input type="email" id="email" placeholder="أدخل بريدك الإلكتروني" required>
+
+        <button type="submit">شحن</button>
+    </form>
+
+    <div id="confirmationMessage" style="display:none; text-align:center; color:green; margin-top:20px;">
+        <p>تم إرسال طلبك بنجاح! سيتم شحن الشدات إلى حسابك قريباً.</p>
+    </div>
+</div>
+
+<script>
+    let selectedPackage = "";
+
+    function selectPackage(packageName) {
+        selectedPackage = packageName;
+        alert("لقد اخترت " + packageName + ". الآن قم بإدخال بياناتك.");
+    }
+
+    document.getElementById('orderForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const playerId = document.getElementById('playerId').value;
+        const email = document.getElementById('email').value;
+
+        if (!selectedPackage) {
+            alert("الرجاء اختيار باقة أولًا!");
+            return;
+        }
+
+        if (!playerId || !email) {
+            alert("يرجى ملء جميع الحقول!");
+            return;
+        }
+
+        // يتم تأكيد الطلب هنا
+        document.getElementById('confirmationMessage').style.display = 'block';
+        console.log("تم شحن " + selectedPackage + " إلى Player ID: " + playerId + " عبر البريد: " + email);
+    });
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقع شحن شدات ببجي</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #2a2a2a;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        .pricing {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .price-card {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            width: 30%;
+        }
+        .price-card button {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .price-card button:hover {
+            background-color: #218838;
+        }
+        form input, form button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        form button {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+        form button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>موقع شحن شدات ببجي</h1>
+</header>
+
+<div class="container">
+    <h2>اختر الباقة التي ترغب في شحنها</h2>
+    <div class="pricing">
+        <div class="price-card">
+            <h3>100 UC</h3>
+            <p>سعر: 1.99 دولار</p>
+            <button onclick="selectPackage('100 UC')">اختيار</button>
+        </div>
+        <div class="price-card">
+            <h3>500 UC</h3>
+            <p>سعر: 9.99 دولار</p>
+            <button onclick="selectPackage('500 UC')">اختيار</button>
+        </div>
+        <div class="price-card">
+            <h3>1200 UC</h3>
+            <p>سعر: 19.99 دولار</p>
+            <button onclick="selectPackage('1200 UC')">اختيار</button>
+        </div>
+    </div>
+
+    <h2>أدخل بياناتك</h2>
+    <form id="orderForm">
+        <label for="playerId">Player ID</label>
+        <input type="text" id="playerId" placeholder="أدخل Player ID" required>
+
+        <label for="email">البريد الإلكتروني</label>
+        <input type="email" id="email" placeholder="أدخل بريدك الإلكتروني" required>
+
+        <button type="submit">شحن</button>
+    </form>
+
+    <div id="confirmationMessage" style="display:none; text-align:center; color:green; margin-top:20px;">
+        <p>تم إرسال طلبك بنجاح! سيتم شحن الشدات إلى حسابك قريباً.</p>
+    </div>
+</div>
+
+<script>
+    let selectedPackage = "";
+
+    function selectPackage(packageName) {
+        selectedPackage = packageName;
+        alert("لقد اخترت " + packageName + ". الآن قم بإدخال بياناتك.");
+    }
+
+    document.getElementById('orderForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const playerId = document.getElementById('playerId').value;
+        const email = document.getElementById('email').value;
+
+        if (!selectedPackage) {
+            alert("الرجاء اختيار باقة أولًا!");
+            return;
+        }
+
+        if (!playerId || !email) {
+            alert("يرجى ملء جميع الحقول!");
+            return;
+        }
+
+        // يتم تأكيد الطلب هنا
+        document.getElementById('confirmationMessage').style.display = 'block';
+        console.log("تم شحن " + selectedPackage + " إلى Player ID: " + playerId + " عبر البريد: " + email);
+    });
+</script>
+
+</body>
+</html>
